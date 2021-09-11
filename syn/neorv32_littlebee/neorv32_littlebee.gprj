@@ -5,6 +5,7 @@
     <Version>5</Version>
     <Device name="GW1NR-9" pn="GW1NR-LV9QN88C6/I5">gw1nr9-000</Device>
     <FileList>
+        <File path="../../hdl/neorv32_littlebee_top.vhd" type="file.vhdl" enable="1"/>
         <File path="../../neorv32/rtl/core/neorv32_application_image.vhd" type="file.vhdl" enable="1" library="neorv32"/>
         <File path="../../neorv32/rtl/core/neorv32_boot_rom.vhd" type="file.vhdl" enable="1" library="neorv32"/>
         <File path="../../neorv32/rtl/core/neorv32_bootloader_image.vhd" type="file.vhdl" enable="1" library="neorv32"/>
@@ -42,7 +43,8 @@
         <File path="../../neorv32/rtl/core/neorv32_wdt.vhd" type="file.vhdl" enable="1" library="neorv32"/>
         <File path="../../neorv32/rtl/core/neorv32_wishbone.vhd" type="file.vhdl" enable="1" library="neorv32"/>
         <File path="../../neorv32/rtl/core/neorv32_xirq.vhd" type="file.vhdl" enable="1" library="neorv32"/>
-        <File path="../../neorv32/rtl/test_setups/neorv32_test_setup_bootloader.vhd" type="file.vhdl" enable="1" library="work"/>
+        <File path="src/gowin_rpll/main_rpll.vhd" type="file.vhdl" enable="1"/>
         <File path="../neorv32_littlebee.cst" type="file.cst" enable="1"/>
+        <File path="../neorv32_littlebee.gsc" type="file.gsc" enable="1"/>
     </FileList>
 </Project>
