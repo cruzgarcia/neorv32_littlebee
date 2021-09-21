@@ -35,24 +35,22 @@ IO_LOC "uart0_txd_o" 29;
 IO_PORT "uart0_txd_o" PULL_MODE=UP DRIVE=8;
 IO_LOC "uart0_rxd_i" 30;
 
-// SPI
-// BUSY - D14
-IO_LOC "epaper_busy_i" 76;
-// RST  - D13
-IO_LOC "epaper_rst_o" 75;
-// DC   - D12
-IO_LOC "epaper_dc_o" 74;
-// CS_N - D9
-IO_LOC "epaper_spi_csn_o" 71;
-IO_LOC "epaper_spi_sck_o" 68;
-IO_LOC "epaper_spi_sdo_o" 69;
-IO_LOC "epaper_spi_sdi_i" 70;
-
-IO_PORT "epaper_rst_o" PULL_MODE=UP DRIVE=8;
-IO_PORT "epaper_dc_o" PULL_MODE=UP DRIVE=8;
-IO_PORT "epaper_spi_sck_o" PULL_MODE=UP DRIVE=8;
-IO_PORT "epaper_spi_sdo_o" PULL_MODE=UP DRIVE=8;
-IO_PORT "epaper_spi_csn_o" PULL_MODE=UP DRIVE=8;
+// SPI Display
+// D14 - Reset
+IO_LOC  "display_spi_rst_o" 76;
+IO_PORT "display_spi_rst_o" PULL_MODE=UP DRIVE=8;
+// D13 - DC
+IO_LOC  "display_spi_dc_o" 75;
+IO_PORT "display_spi_dc_o" PULL_MODE=UP DRIVE=8;
+// D12 - SCK
+IO_LOC  "display_spi_sck_o" 74;
+IO_PORT "display_spi_sck_o" PULL_MODE=UP DRIVE=8;
+// D11 - SDO
+IO_LOC  "display_spi_sdo_o" 73;
+IO_PORT "display_spi_sdo_o" PULL_MODE=UP DRIVE=8;
+// D10 - CSN 
+IO_LOC  "display_spi_csn_o" 72;
+IO_PORT "display_spi_csn_o" PULL_MODE=UP DRIVE=8;
 
 // Flash
 IO_LOC "flash_clk_o" 49;
