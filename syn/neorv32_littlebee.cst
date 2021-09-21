@@ -6,6 +6,7 @@
 //Device: GW1NR-9C
 //Created Time: Sat 09 11 00:04:38 2021
 
+// GPIOs
 IO_LOC "gpio_o[7]" 79;
 IO_PORT "gpio_o[7]" PULL_MODE=UP DRIVE=8;
 IO_LOC "gpio_o[6]" 80;
@@ -22,10 +23,48 @@ IO_LOC "gpio_o[1]" 85;
 IO_PORT "gpio_o[1]" PULL_MODE=UP DRIVE=8;
 IO_LOC "gpio_o[0]" 86;
 IO_PORT "gpio_o[0]" PULL_MODE=UP DRIVE=8;
-IO_LOC "rstn_i" 77,76;
+
+// Clock and Reset
+IO_LOC "rstn_i" 77;
 IO_PORT "rstn_i" PULL_MODE=UP;
 IO_LOC "clk_i" 63;
 IO_PORT "clk_i" PULL_MODE=UP;
+
+// UART
 IO_LOC "uart0_txd_o" 29;
 IO_PORT "uart0_txd_o" PULL_MODE=UP DRIVE=8;
 IO_LOC "uart0_rxd_i" 30;
+
+// SPI
+// BUSY - D14
+IO_LOC "epaper_busy_i" 76;
+// RST  - D13
+IO_LOC "epaper_rst_o" 75;
+// DC   - D12
+IO_LOC "epaper_dc_o" 74;
+// CS_N - D9
+IO_LOC "epaper_spi_csn_o" 71;
+IO_LOC "epaper_spi_sck_o" 68;
+IO_LOC "epaper_spi_sdo_o" 69;
+IO_LOC "epaper_spi_sdi_i" 70;
+
+IO_PORT "epaper_rst_o" PULL_MODE=UP DRIVE=8;
+IO_PORT "epaper_dc_o" PULL_MODE=UP DRIVE=8;
+IO_PORT "epaper_spi_sck_o" PULL_MODE=UP DRIVE=8;
+IO_PORT "epaper_spi_sdo_o" PULL_MODE=UP DRIVE=8;
+IO_PORT "epaper_spi_csn_o" PULL_MODE=UP DRIVE=8;
+
+// Flash
+IO_LOC "flash_clk_o" 49;
+IO_LOC "flash_cs_o" 51;
+IO_LOC "flash_so" 48;
+IO_LOC "flash_si" 53;
+
+IO_LOC "flash_i02" 54;
+IO_LOC "flash_i03" 50;
+
+IO_PORT "flash_clk_o" PULL_MODE=UP DRIVE=8;
+IO_PORT "flash_cs_o"  PULL_MODE=UP DRIVE=8;
+IO_PORT "flash_so"    PULL_MODE=UP DRIVE=8;
+IO_PORT "flash_i02"   PULL_MODE=UP DRIVE=8;
+IO_PORT "flash_i03"   PULL_MODE=UP DRIVE=8;
