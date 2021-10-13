@@ -10,3 +10,6 @@
 [submodule "hdl/hdl-ip-library"]
 	path = hdl/hdl-ip-library
 	url = git@github.com:cruzgarcia/hdl-ip-library.git
+[submodule "submodules/hdl-ip-library"]
+	path = submodules/hdl-ip-library
+	url = git@github.com:cruzgarcia/hdl-ip-library.git

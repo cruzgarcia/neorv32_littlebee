@@ -31,28 +31,52 @@ IO_LOC "clk_i" 63;
 IO_PORT "clk_i" PULL_MODE=UP;
 
 // UART
+// D0
 IO_LOC "uart0_txd_o" 29;
 IO_PORT "uart0_txd_o" PULL_MODE=UP DRIVE=8;
+// D1
 IO_LOC "uart0_rxd_i" 30;
 
-// SPI Display
-// D14 - Reset
-IO_LOC  "display_spi_rst_o" 76;
-IO_PORT "display_spi_rst_o" PULL_MODE=UP DRIVE=8;
-// D13 - DC
-IO_LOC  "display_spi_dc_o" 75;
-IO_PORT "display_spi_dc_o" PULL_MODE=UP DRIVE=8;
-// D12 - SCK
-IO_LOC  "display_spi_sck_o" 74;
-IO_PORT "display_spi_sck_o" PULL_MODE=UP DRIVE=8;
-// D11 - SDO
-IO_LOC  "display_spi_sdo_o" 73;
-IO_PORT "display_spi_sdo_o" PULL_MODE=UP DRIVE=8;
-// D10 - CSN 
-IO_LOC  "display_spi_csn_o" 72;
-IO_PORT "display_spi_csn_o" PULL_MODE=UP DRIVE=8;
+// ------------------------------------------------------
+// RTC - TWI
+// ------------------------------------------------------
+// D2 
+IO_LOC "twi_sda_io" 31;
+// D3
+IO_LOC "twi_scl_io" 32;
+// ------------------------------------------------------
 
+// ------------------------------------------------------
+// Seven segment display
+// ------------------------------------------------------
+// D14 - Segment A
+IO_LOC  "seven_segmnt_disp_o[6]" 76;
+IO_PORT "seven_segmnt_disp_o[6]" PULL_MODE=UP DRIVE=8;
+// D13 - Segment A
+IO_LOC  "seven_segmnt_disp_o[5]" 75;
+IO_PORT "seven_segmnt_disp_o[5]" PULL_MODE=UP DRIVE=8;
+// D12 - Segment A
+IO_LOC  "seven_segmnt_disp_o[4]" 74;
+IO_PORT "seven_segmnt_disp_o[4]" PULL_MODE=UP DRIVE=8;
+// D11 - Segment A
+IO_LOC  "seven_segmnt_disp_o[3]" 73;
+IO_PORT "seven_segmnt_disp_o[3]" PULL_MODE=UP DRIVE=8;
+// D10 - Segment A
+IO_LOC  "seven_segmnt_disp_o[2]" 72;
+IO_PORT "seven_segmnt_disp_o[2]" PULL_MODE=UP DRIVE=8;
+// D9  - Segment A
+IO_LOC  "seven_segmnt_disp_o[1]" 71;
+IO_PORT "seven_segmnt_disp_o[1]" PULL_MODE=UP DRIVE=8;
+// D8  - Segment A
+IO_LOC  "seven_segmnt_disp_o[0]" 70;
+IO_PORT "seven_segmnt_disp_o[0]" PULL_MODE=UP DRIVE=8;
+// D7  - Segment enable
+IO_LOC  "seven_segmnt_enable" 69;
+IO_PORT "seven_segmnt_enable" PULL_MODE=UP DRIVE=8;
+
+// ------------------------------------------------------
 // Flash
+// ------------------------------------------------------
 IO_LOC "flash_clk_o" 49;
 IO_LOC "flash_cs_o" 51;
 IO_LOC "flash_so" 48;

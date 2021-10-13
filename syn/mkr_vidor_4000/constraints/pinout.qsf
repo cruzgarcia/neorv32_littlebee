@@ -157,32 +157,38 @@ set_location_assignment PIN_E1 -to rstn_i
 
 #Temporal
 
+# Board RED led
 set_location_assignment PIN_P8  -to gpio_o[0]
 set_location_assignment PIN_L7  -to gpio_o[1]
 set_location_assignment PIN_N8  -to gpio_o[2]
-set_location_assignment PIN_T8  -to gpio_o[3]
+set_location_assignment PIN_T15  -to gpio_o[3]
 set_location_assignment PIN_M8  -to gpio_o[4]
-set_location_assignment PIN_R8  -to gpio_o[5]
+set_location_assignment PIN_R14  -to gpio_o[5]
 set_location_assignment PIN_L8  -to gpio_o[6]
 set_location_assignment PIN_M10 -to gpio_o[7]
 
-set_location_assignment PIN_N12 -to uart0_txd_o
-set_location_assignment PIN_T9  -to uart0_rxd_i
+# UART w/SAMD
+# set_location_assignment PIN_G16 -to bMKR_D[6]
+# set_location_assignment PIN_G15 -to bMKR_D[7]
+set_location_assignment PIN_C16 -to uart0_rxd_i
+set_location_assignment PIN_C15  -to uart0_txd_o
+set_instance_assignment -name IO_STANDARD "2.5 V" -to uart0_txd_o
 
-set_location_assignment PIN_R9  -to flash_cs_o
-set_location_assignment PIN_T13 -to flash_clk_o
-set_location_assignment PIN_R12 -to flash_so
-set_location_assignment PIN_A9  -to flash_si
-set_location_assignment PIN_F13  -to flash_i02
-set_location_assignment PIN_B9  -to flash_i03
-set_location_assignment PIN_R13 -to seven_segmnt_disp_o[6]
-set_location_assignment PIN_P14 -to seven_segmnt_disp_o[5]
-set_location_assignment PIN_T15 -to seven_segmnt_disp_o[4]
-set_location_assignment PIN_R14 -to seven_segmnt_disp_o[3]
-set_location_assignment PIN_T14 -to seven_segmnt_disp_o[2]
-set_location_assignment PIN_F14 -to seven_segmnt_disp_o[1]
-set_location_assignment PIN_D16 -to seven_segmnt_disp_o[0]
-set_location_assignment PIN_D15 -to seven_segmnt_enable
+#set_location_assignment PIN_R9  -to flash_cs_o
+#set_location_assignment PIN_T13 -to flash_clk_o
+#set_location_assignment PIN_R12 -to flash_so
+#set_location_assignment PIN_A9  -to flash_si
+#set_location_assignment PIN_F13  -to flash_i02
+#set_location_assignment PIN_B9  -to flash_i03
+
+#set_location_assignment PIN_R13 -to seven_segmnt_disp_o[6]
+#set_location_assignment PIN_P14 -to seven_segmnt_disp_o[5]
+#set_location_assignment PIN_T15 -to seven_segmnt_disp_o[4]
+#set_location_assignment PIN_R14 -to seven_segmnt_disp_o[3]
+#set_location_assignment PIN_T14 -to seven_segmnt_disp_o[2]
+#set_location_assignment PIN_F14 -to seven_segmnt_disp_o[1]
+#set_location_assignment PIN_D16 -to seven_segmnt_disp_o[0]
+#set_location_assignment PIN_D15 -to seven_segmnt_enable
 
 
 # # NINA interface
