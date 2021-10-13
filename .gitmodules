@@ -1,12 +1,6 @@
 [submodule "neorv32"]
 	path = neorv32
 	url = git@github.com:stnolting/neorv32.git
-[submodule "sw/Adafruit_RISCV_SSD1306"]
-	path = sw/Adafruit_RISCV_SSD1306
-	url = git@github.com:cruzgarcia/Adafruit_RISCV_SSD1306.git
-[submodule "sw/Adafruit-RISCV-GFX-Library"]
-	path = sw/Adafruit-RISCV-GFX-Library
-	url = git@github.com:cruzgarcia/Adafruit-RISCV-GFX-Library.git
 [submodule "submodules/hdl-ip-library"]
 	path = submodules/hdl-ip-library
 	url = git@github.com:cruzgarcia/hdl-ip-library.git
