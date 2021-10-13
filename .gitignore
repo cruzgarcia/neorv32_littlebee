@@ -1,0 +1,5 @@
+# Object files and compiled files
+*.o
+*.elf
+*.asm
+*.bin
