@@ -19,19 +19,13 @@ entity neorv32_littlebee_top is
   );
   port (
     -- Global signals
-    clk_i               : in  std_ulogic; -- global clock, rising edge
-    rstn_i              : in  std_ulogic; -- global reset, low-active, async
+    clk_i               : in  std_ulogic;
+    rstn_i              : in  std_ulogic;
     -- GPIO
-    gpio_o              : out std_ulogic_vector(7 downto 0); -- parallel output
+    gpio_o              : out std_ulogic_vector(7 downto 0);
     -- UART 0
-    uart0_txd_o         : out std_ulogic; -- UART0 send data
-    uart0_rxd_i         : in  std_ulogic; -- UART0 receive data
-    -- Display
-    display_spi_rst_o   : out std_logic;
-    display_spi_dc_o    : out std_logic;
-    display_spi_sck_o   : out std_logic;
-    display_spi_sdo_o   : out std_logic;
-    display_spi_csn_o   : out std_logic;
+    uart0_txd_o         : out std_ulogic;
+    uart0_rxd_i         : in  std_ulogic;
     -- Serial Flash
     flash_cs_o          : out std_logic;
     flash_clk_o         : out std_logic;
@@ -41,10 +35,7 @@ entity neorv32_littlebee_top is
     flash_i03           : out std_logic;
     -- TWI
     twi_sda_io          : inout std_logic;
-    twi_scl_io          : inout std_logic;
-    -- Seven segment display
-    seven_segmnt_disp_o : out   std_logic_vector(6 downto 0);
-    seven_segmnt_enable : out   std_logic
+    twi_scl_io          : inout std_logic
   );
 end entity;
 
@@ -52,7 +43,6 @@ architecture neorv32_littlebee_top_rtl of neorv32_littlebee_top is
 
   -- SPI
   constant c_spi_csn_flash_index      : integer := 0;
-  constant c_spi_csn_display_index    : integer := 1;
   -- GPIO
   signal con_gpio_o                   : std_ulogic_vector(63 downto 0);
   signal con_gpio_i                   : std_ulogic_vector(63 downto 0);
@@ -62,13 +52,6 @@ architecture neorv32_littlebee_top_rtl of neorv32_littlebee_top is
   signal spi_sdo                      : std_ulogic;
   signal spi_sdi                      : std_ulogic;
   signal spi_csn                      : std_ulogic_vector(7 downto 0);
-  -- Seven segments display
-  signal r_prescaler                  : std_logic_vector(31 downto 0) := (others => '0');
-  signal r_prescaler_valid            : std_logic                     := '0';
-  signal r_prescaler_display          : std_logic_vector(31 downto 0) := (others => '0');
-  signal r_prescaler_display_valid    : std_logic                     := '0';
-  --
-  signal r_bcd_counter                : std_logic_vector(3 downto 0)  := (others => '0');
 
 begin
 
@@ -112,7 +95,7 @@ begin
   port map (
     -- Global control --
     clk_i                       => clock_30mhz,
-    rstn_i                      => rstn_i,      -- global reset, low-active, async
+    rstn_i                      => rstn_i,
     -- GPIO
     gpio_o                      => con_gpio_o,
     gpio_i                      => con_gpio_i,
@@ -130,22 +113,14 @@ begin
   );
 
   -- GPIO output
-  gpio_o <= con_gpio_o(7 downto 0);
-
-  -- Display
-  display_spi_rst_o   <= con_gpio_o(8);
-  display_spi_dc_o    <= con_gpio_o(9);
-  display_spi_sck_o   <= spi_sck;
-  display_spi_sdo_o   <= spi_sdo;
-  display_spi_csn_o   <= spi_csn(c_spi_csn_display_index);
-
+  gpio_o            <= con_gpio_o(7 downto 0);
   -- Flash
   flash_cs_o        <= spi_csn(c_spi_csn_flash_index);
   flash_clk_o       <= spi_sck;
   flash_so          <= spi_sdo;
   flash_i02         <= 'Z';
   flash_i03         <= 'Z';
-
+  -- SPI CSn multiplexer
   proc_flash_din_mux : process(spi_csn, flash_si, spi_sdi)
   begin
     case spi_csn is
@@ -153,62 +128,5 @@ begin
       when others => spi_sdi <= '1';
     end case;
   end process;
-
-  --=======================================================
-  --= 7 Segments test 
-  --=======================================================
---  proc_counter : process(rstn_i, clock_30mhz)
---  begin
---    if (rstn_i = '0')then
---      r_prescaler                   <= (others => '0');
---      r_prescaler_valid             <= '0';
---      r_prescaler_display           <= (others => '0');
---      r_prescaler_display_valid     <= '0';
---    elsif rising_edge(clock_30mhz)then
---      r_prescaler_valid             <= '0';
---      r_prescaler_display_valid     <= '0';
---      if(r_prescaler_display(8) = '1')then
---        r_prescaler_display         <= (others => '0');
---        r_prescaler_display_valid   <= '1';
---      else
---        r_prescaler_display         <= r_prescaler_display + '1';
---      end if;
---      if(r_prescaler(23) = '1')then
---        r_prescaler                 <= (others => '0');
---        r_prescaler_valid           <= '1';
---      else
---        r_prescaler                 <= r_prescaler + '1';
---      end if;
---    end if;
---  end process;
---
---  seven_segmnt_enable   <= r_prescaler_display_valid;
---
---  proc_slow_counter : process(clock_30mhz)
---  begin
---    if rising_edge(clock_30mhz)then
---      if(r_prescaler_valid  = '1')then
---        if(r_bcd_counter = x"9")then
---          r_bcd_counter   <= (others => '0');
---        else
---          r_bcd_counter   <= r_bcd_counter + '1';
---        end if;
---      end if;
---    end if;
---  end process;
---
---  inst_segments : entity work.seven_segment_display
---    generic map(
---      g_displ_active_high   => false
---    )port map(
---      -- Clock
---      i_clock               => clock_30mhz,
---      i_reset               => not rstn_i,
---      -- Input 
---      i_digit               => r_bcd_counter,
---      i_digit_va            => '1',
---      -- Output
---      o_segment_disp        => seven_segmnt_disp_o
---    );
   --=======================================================
 end architecture;

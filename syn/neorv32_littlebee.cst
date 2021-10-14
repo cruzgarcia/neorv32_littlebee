@@ -50,29 +50,29 @@ IO_LOC "twi_scl_io" 32;
 // Seven segment display
 // ------------------------------------------------------
 // D14 - Segment A
-IO_LOC  "seven_segmnt_disp_o[6]" 76;
-IO_PORT "seven_segmnt_disp_o[6]" PULL_MODE=UP DRIVE=8;
-// D13 - Segment A
-IO_LOC  "seven_segmnt_disp_o[5]" 75;
-IO_PORT "seven_segmnt_disp_o[5]" PULL_MODE=UP DRIVE=8;
-// D12 - Segment A
-IO_LOC  "seven_segmnt_disp_o[4]" 74;
-IO_PORT "seven_segmnt_disp_o[4]" PULL_MODE=UP DRIVE=8;
-// D11 - Segment A
-IO_LOC  "seven_segmnt_disp_o[3]" 73;
-IO_PORT "seven_segmnt_disp_o[3]" PULL_MODE=UP DRIVE=8;
-// D10 - Segment A
-IO_LOC  "seven_segmnt_disp_o[2]" 72;
-IO_PORT "seven_segmnt_disp_o[2]" PULL_MODE=UP DRIVE=8;
-// D9  - Segment A
-IO_LOC  "seven_segmnt_disp_o[1]" 71;
-IO_PORT "seven_segmnt_disp_o[1]" PULL_MODE=UP DRIVE=8;
-// D8  - Segment A
-IO_LOC  "seven_segmnt_disp_o[0]" 70;
-IO_PORT "seven_segmnt_disp_o[0]" PULL_MODE=UP DRIVE=8;
-// D7  - Segment enable
-IO_LOC  "seven_segmnt_enable" 69;
-IO_PORT "seven_segmnt_enable" PULL_MODE=UP DRIVE=8;
+// IO_LOC  "seven_segmnt_disp_o[6]" 76;
+// IO_PORT "seven_segmnt_disp_o[6]" PULL_MODE=UP DRIVE=8;
+// // D13 - Segment A
+// IO_LOC  "seven_segmnt_disp_o[5]" 75;
+// IO_PORT "seven_segmnt_disp_o[5]" PULL_MODE=UP DRIVE=8;
+// // D12 - Segment A
+// IO_LOC  "seven_segmnt_disp_o[4]" 74;
+// IO_PORT "seven_segmnt_disp_o[4]" PULL_MODE=UP DRIVE=8;
+// // D11 - Segment A
+// IO_LOC  "seven_segmnt_disp_o[3]" 73;
+// IO_PORT "seven_segmnt_disp_o[3]" PULL_MODE=UP DRIVE=8;
+// // D10 - Segment A
+// IO_LOC  "seven_segmnt_disp_o[2]" 72;
+// IO_PORT "seven_segmnt_disp_o[2]" PULL_MODE=UP DRIVE=8;
+// // D9  - Segment A
+// IO_LOC  "seven_segmnt_disp_o[1]" 71;
+// IO_PORT "seven_segmnt_disp_o[1]" PULL_MODE=UP DRIVE=8;
+// // D8  - Segment A
+// IO_LOC  "seven_segmnt_disp_o[0]" 70;
+// IO_PORT "seven_segmnt_disp_o[0]" PULL_MODE=UP DRIVE=8;
+// // D7  - Segment enable
+// IO_LOC  "seven_segmnt_enable" 69;
+// IO_PORT "seven_segmnt_enable" PULL_MODE=UP DRIVE=8;
 
 // ------------------------------------------------------
 // Flash
@@ -81,7 +81,6 @@ IO_LOC "flash_clk_o" 49;
 IO_LOC "flash_cs_o" 51;
 IO_LOC "flash_so" 48;
 IO_LOC "flash_si" 53;
-
 IO_LOC "flash_i02" 54;
 IO_LOC "flash_i03" 50;
 
