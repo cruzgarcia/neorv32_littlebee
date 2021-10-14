@@ -73,7 +73,6 @@ architecture neorv32_littlebee_top_rtl of neorv32_littlebee_top is
 begin
 
   -- Main PLL
-  -- synthesis translate_off
   gen_gowin_pll : if FPGA_MANUFACTURER = "GOWIN" GENERATE
     inst_pll : entity work.main_rpll
     port map(
@@ -81,7 +80,6 @@ begin
       clkout    => clock_30mhz
     );
   end generate gen_gowin_pll;
-  -- synthesis translate_on
 
   gen_intel_pll : if FPGA_MANUFACTURER = "INTEL" GENERATE
     clock_30mhz <= clk_i;
@@ -147,7 +145,6 @@ begin
   flash_so          <= spi_sdo;
   flash_i02         <= 'Z';
   flash_i03         <= 'Z';
-
 
   proc_flash_din_mux : process(spi_csn, flash_si, spi_sdi)
   begin
